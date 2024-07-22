@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>887,1529</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1100,2700</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LoginUiDemo_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -49,6 +49,7 @@
       <x:String>UiPath.Platform.SyncObjects</x:String>
       <x:String>System.ComponentModel</x:String>
       <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -97,72 +98,108 @@
       <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="LogInUIDemo" sap:VirtualizedContainerService.HintSize="608,1464" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Get the user name and password from assets and log in to the application" DisplayName="LogInUIDemo" sap:VirtualizedContainerService.HintSize="1110.4,2635.2" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: UiDemo" sap:VirtualizedContainerService.HintSize="546,1376" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" OpenMode="IfNotOpen" ScopeGuid="232cff32-d72c-4c5f-bc1b-46fcfd1513c4" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: UiDemo" sap:VirtualizedContainerService.HintSize="1048,2515.2" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" OpenMode="IfNotOpen" ScopeGuid="232cff32-d72c-4c5f-bc1b-46fcfd1513c4" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,1062" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <Sequence DisplayName="Do : check if target appears " sap:VirtualizedContainerService.HintSize="1014.4,2200.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Sequence : Login" sap:VirtualizedContainerService.HintSize="450,972" sap2010:WorkflowViewState.IdRef="Sequence_7">
-              <Sequence.Variables>
-                <Variable x:TypeArguments="x:String" Name="Username" />
-                <Variable x:TypeArguments="ss:SecureString" Name="Password" />
-              </Sequence.Variables>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;AssetFolderName&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="388,175" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[Password]" Username="[Username]" />
-              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Username'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,250" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="232cff32-d72c-4c5f-bc1b-46fcfd1513c4" Text="[Username]" Version="V3">
-                <uix:NTypeInto.Target>
-                  <uix:TargetAnchorable CVScreenId="3a4d9281-0951-4f4e-add5-9d5e23f3e1a5" CvElementArea="110, 90, 122, 24" CvType="InputBox" DesignTimeRectangle="111, 91, 120, 23" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;ctrl automationid='user' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='user' role='editable text' /&gt;" Guid="105d6a6c-8445-4c9a-b330-78efd9d0a7a3" InformativeScreenshot="8faafffb9d1fd3f863bb5d6f175831e1.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='uidemo.exe' cls='HwndWrapper*' title='UiDemo' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
-                    <uix:TargetAnchorable.Anchors>
-                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                        <uix:Target CVScreenId="3a4d9281-0951-4f4e-add5-9d5e23f3e1a5" CvTextArea="28, 95, 55, 12" CvTextArgument="Username" CvType="Text" DesignTimeRectangle="29, 93, 53, 16" ElementType="Text" FullSelectorArgument="&lt;ctrl name='Username' role='text' /&gt;&lt;ctrl name='Username' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Username' role='text' /&gt;&lt;ctrl name='Username' role='text' automationid='' check:text='Username' /&gt;" Guid="60e7d8e9-9784-4332-9e8e-5d1f411c613c" SearchSteps="Selector" />
-                      </scg:List>
-                    </uix:TargetAnchorable.Anchors>
-                  </uix:TargetAnchorable>
-                </uix:NTypeInto.Target>
-              </uix:NTypeInto>
-              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,250" sap2010:WorkflowViewState.IdRef="NTypeInto_4" IsPassword="True" ScopeIdentifier="232cff32-d72c-4c5f-bc1b-46fcfd1513c4" SecureText="[Password]" Version="V3">
-                <uix:NTypeInto.Target>
-                  <uix:TargetAnchorable CVScreenId="3a4d9281-0951-4f4e-add5-9d5e23f3e1a5" CvElementArea="110, 133, 122, 25" CvType="InputBox" DesignTimeRectangle="111, 134, 120, 23" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FullSelectorArgument="&lt;ctrl automationid='pass' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='pass' role='editable text' /&gt;" Guid="c3a47d2c-9b68-4ef7-bb74-98714d4eb08e" InformativeScreenshot="a9b86e6cb02714e76c0107451f27a931.png" ScopeSelectorArgument="&lt;wnd app='uidemo.exe' cls='HwndWrapper*' title='UiDemo' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
-                    <uix:TargetAnchorable.Anchors>
-                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                        <uix:Target CVScreenId="3a4d9281-0951-4f4e-add5-9d5e23f3e1a5" CvTextArea="28, 138, 51, 12" CvTextArgument="Password" CvType="Text" DesignTimeRectangle="29, 136, 50, 16" ElementType="Text" FullSelectorArgument="&lt;ctrl name='Password' role='text' /&gt;&lt;ctrl name='Password' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Password' role='text' /&gt;&lt;ctrl name='Password' role='text' automationid='' check:text='Password' /&gt;" Guid="73756e1b-f0a4-45ba-af7e-39d2441d6564" SearchSteps="Selector" />
-                      </scg:List>
-                    </uix:TargetAnchorable.Anchors>
-                  </uix:TargetAnchorable>
-                </uix:NTypeInto.Target>
-              </uix:NTypeInto>
-              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Log In'" sap:VirtualizedContainerService.HintSize="388,182" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="232cff32-d72c-4c5f-bc1b-46fcfd1513c4" Version="V3">
-                <uix:NClick.Target>
-                  <uix:TargetAnchorable CVScreenId="3a4d9281-0951-4f4e-add5-9d5e23f3e1a5" CvElementArea="98, 191, 77, 22" CvTextArea="119, 196, 34, 15" CvTextArgument="Log In" CvType="Button" DesignTimeRectangle="120, 194, 33, 16" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;ctrl name='Log In' role='push button' /&gt;&lt;ctrl name='Log In' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Log In' role='push button' /&gt;&lt;ctrl name='Log In' role='text' automationid='' check:text='Log In' /&gt;" Guid="153e27ce-9f08-42bb-aaa7-eba07f08a866" InformativeScreenshot="9da8850d9ee6faa881b657c6fb9953ab.png" ScopeSelectorArgument="&lt;wnd app='uidemo.exe' cls='HwndWrapper*' title='UiDemo' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
-                    <uix:TargetAnchorable.Anchors>
-                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                        <uix:Target CVScreenId="3a4d9281-0951-4f4e-add5-9d5e23f3e1a5" CvElementArea="98, 191, 77, 22" CvTextArea="119, 196, 34, 15" CvTextArgument="Log In" CvType="Button" DesignTimeRectangle="99, 192, 75, 20" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Log In' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Log In' role='push button' automationid='' check:text='Log In' /&gt;" Guid="168bdc82-3dd2-4c84-bdee-e91b0d5383f4" SearchSteps="Selector" />
-                      </scg:List>
-                    </uix:TargetAnchorable.Anchors>
-                  </uix:TargetAnchorable>
-                </uix:NClick.Target>
-              </uix:NClick>
-            </Sequence>
+            <ui:LogMessage DisplayName="Log Message : Target appears " sap:VirtualizedContainerService.HintSize="952,176" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Check if target appears &quot;]" />
+            <uix:NCheckState DisplayName=" Check App State : 'UiDemo' application" sap:VirtualizedContainerService.HintSize="952,1936" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="232cff32-d72c-4c5f-bc1b-46fcfd1513c4" Timeout="2" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears : Successfull" sap:VirtualizedContainerService.HintSize="449.6,1652.8" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="Username" />
+                    <Variable x:TypeArguments="ss:SecureString" Name="Password" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;AssetFolderName&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential : Get user name and password" sap:VirtualizedContainerService.HintSize="387.2,175.2" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[Password]" Username="[Username]" />
+                  <ui:LogMessage DisplayName="Log Message : Username and password found" sap:VirtualizedContainerService.HintSize="387.2,176" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Username and password retrived&quot;]" />
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Username'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,250.4" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="232cff32-d72c-4c5f-bc1b-46fcfd1513c4" Text="[Username]" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable CVScreenId="3a4d9281-0951-4f4e-add5-9d5e23f3e1a5" CvElementArea="110, 90, 122, 24" CvType="InputBox" DesignTimeRectangle="111, 91, 120, 23" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;ctrl automationid='user' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='user' role='editable text' /&gt;" Guid="105d6a6c-8445-4c9a-b330-78efd9d0a7a3" InformativeScreenshot="8faafffb9d1fd3f863bb5d6f175831e1.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='uidemo.exe' cls='HwndWrapper*' title='UiDemo' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="3a4d9281-0951-4f4e-add5-9d5e23f3e1a5" CvTextArea="28, 95, 55, 12" CvTextArgument="Username" CvType="Text" DesignTimeRectangle="29, 93, 53, 16" ElementType="Text" FullSelectorArgument="&lt;ctrl name='Username' role='text' /&gt;&lt;ctrl name='Username' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Username' role='text' /&gt;&lt;ctrl name='Username' role='text' automationid='' check:text='Username' /&gt;" Guid="60e7d8e9-9784-4332-9e8e-5d1f411c613c" SearchSteps="Selector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <ui:LogMessage DisplayName="Log Message : Username" sap:VirtualizedContainerService.HintSize="387.2,176" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Username entered&quot;]" />
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,250.4" sap2010:WorkflowViewState.IdRef="NTypeInto_4" IsPassword="True" ScopeIdentifier="232cff32-d72c-4c5f-bc1b-46fcfd1513c4" SecureText="[Password]" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable CVScreenId="3a4d9281-0951-4f4e-add5-9d5e23f3e1a5" CvElementArea="110, 133, 122, 25" CvType="InputBox" DesignTimeRectangle="111, 134, 120, 23" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FullSelectorArgument="&lt;ctrl automationid='pass' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='pass' role='editable text' /&gt;" Guid="c3a47d2c-9b68-4ef7-bb74-98714d4eb08e" InformativeScreenshot="a9b86e6cb02714e76c0107451f27a931.png" ScopeSelectorArgument="&lt;wnd app='uidemo.exe' cls='HwndWrapper*' title='UiDemo' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="3a4d9281-0951-4f4e-add5-9d5e23f3e1a5" CvTextArea="28, 138, 51, 12" CvTextArgument="Password" CvType="Text" DesignTimeRectangle="29, 136, 50, 16" ElementType="Text" FullSelectorArgument="&lt;ctrl name='Password' role='text' /&gt;&lt;ctrl name='Password' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Password' role='text' /&gt;&lt;ctrl name='Password' role='text' automationid='' check:text='Password' /&gt;" Guid="73756e1b-f0a4-45ba-af7e-39d2441d6564" SearchSteps="Selector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <ui:LogMessage DisplayName="Log Message : Password" sap:VirtualizedContainerService.HintSize="387.2,176" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Password entered &quot;]" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Log In'" sap:VirtualizedContainerService.HintSize="387.2,189.6" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="232cff32-d72c-4c5f-bc1b-46fcfd1513c4" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable CVScreenId="3a4d9281-0951-4f4e-add5-9d5e23f3e1a5" CvElementArea="98, 191, 77, 22" CvTextArea="119, 196, 34, 15" CvTextArgument="Log In" CvType="Button" DesignTimeRectangle="120, 194, 33, 16" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;ctrl name='Log In' role='push button' /&gt;&lt;ctrl name='Log In' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Log In' role='push button' /&gt;&lt;ctrl name='Log In' role='text' automationid='' check:text='Log In' /&gt;" Guid="153e27ce-9f08-42bb-aaa7-eba07f08a866" InformativeScreenshot="9da8850d9ee6faa881b657c6fb9953ab.png" ScopeSelectorArgument="&lt;wnd app='uidemo.exe' cls='HwndWrapper*' title='UiDemo' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="3a4d9281-0951-4f4e-add5-9d5e23f3e1a5" CvElementArea="98, 191, 77, 22" CvTextArea="119, 196, 34, 15" CvTextArgument="Log In" CvType="Button" DesignTimeRectangle="99, 192, 75, 20" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Log In' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Log In' role='push button' automationid='' check:text='Log In' /&gt;" Guid="168bdc82-3dd2-4c84-bdee-e91b0d5383f4" SearchSteps="Selector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <ui:LogMessage DisplayName="Log Message : Success" sap:VirtualizedContainerService.HintSize="387.2,168.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Logged in successfully&quot;]" />
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear : failed" sap:VirtualizedContainerService.HintSize="449.6,381.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message : Failed" sap:VirtualizedContainerService.HintSize="387.2,176" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;The target failed&quot;]" />
+                  <Throw DisplayName="Throw system exception" Exception="[new SystemException(&quot;Target not found&quot;)]" sap:VirtualizedContainerService.HintSize="387.2,115.2" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="0, 0, 325, 288" DesignTimeScaleFactor="1.25" Guid="d6c0ae3c-f10f-4442-acf7-c147fde8b7a9" InformativeScreenshot="628d72fd2fca1ed8133c2f0867af5907.png" ScopeSelectorArgument="&lt;wnd app='uidemo.exe' cls='HwndWrapper*' title='UiDemo' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.FuzzySelectorArgument>
+                    <InArgument x:TypeArguments="x:String">
+                      <Literal x:TypeArguments="x:String" Value="" />
+                    </InArgument>
+                  </uix:TargetAnchorable.FuzzySelectorArgument>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
